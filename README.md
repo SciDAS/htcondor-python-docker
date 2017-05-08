@@ -1,8 +1,8 @@
 The beginnings of a Docker container image that can communicate with HTCondor using the Python API.
 
-_This doesn't work_
+_Make sure your HTCondor cluster (the submit node) has a `condor_pool` user_
 
-The Python API can communicate with HTCondor, but it cannot submit jobs.  See Status section.
+See Status section.
 
 ## Dependencies
 This doesn't necessarily seem like the best way to do this…
@@ -10,7 +10,8 @@ In `resources/`:
 * ~~HTCondor libs, extracted from a zip file in [Anaconda](https://anaconda.org/kreczko/htcondor-python/files): [htcondor-python-8.6.0-py27_1.tar.bz2](https://anaconda.org/kreczko/htcondor-python/8.6.0/download/linux-64/htcondor-python-8.6.0-py27_1.tar.bz2)~~
 * HTCondor libs, copied from Centos container after `yum install condor-python`
 * ~~boost-python/libboost_python.so built from source: [boost_1_63_0.tar.bz2](https://pilotfiber.dl.sourceforge.net/project/boost/boost/1.63.0/boost_1_63_0.tar.bz2)~~
-* libpcre/libpcre.so.1 symlinked from provided debian libpcre.so.3
+* ~~libpcre/libpcre.so.1 symlinked from provided debian libpcre.so.3~~
+* libpcre and libcrypto copied from Centos container
 
 ## See Also:
 * HTCondor [Python Bindings](http://research.cs.wisc.edu/htcondor/manual/v8.6/6_7Python_Bindings.html)
@@ -38,10 +39,5 @@ Type "help", "copyright", "credits" or "license" for more information.
 ```
 
 ## Status:
-```
-Traceback (most recent call last):
-  File "/examples/htcondor_test.py", line 27, in <module>
-    print schedd.submit(ad)
-ValueError: TransferErr
-```
+The [htcondor_test.py](https://github.com/SciDAS/htcondor-python-docker/blob/master/examples/htcondor_test.py) script demonstrates very simple job submission to remote condor-submitter node.
 
