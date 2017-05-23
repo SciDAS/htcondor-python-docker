@@ -50,6 +50,7 @@ case $key in
             # pass all options to docker run
             DOCKER_RUN_COMMAND=$@
             DOCKER_RUN_INTERACTIVE="-it" # interactive
+            DOCKER_NAME_PYTHON="${DOCKER_NAME_PYTHON}-it"
     ;;
 esac
 shift # past argument or value

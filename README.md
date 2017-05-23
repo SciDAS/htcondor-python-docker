@@ -1,6 +1,7 @@
 The beginnings of a Docker container image that can communicate with HTCondor using the Python API.
 
 _Make sure your HTCondor cluster (the submit node) has a `condor_pool` user_
+`useradd -m -s /bin/bash -U condor_pool`
 
 See Status section.
 
